@@ -1,18 +1,21 @@
 {
   "name": "classic-url-uploader",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/index.js",
   "types": "src/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prepublish": "tsc",
+    "prepublishOnly": "npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "files": [
+    "dist/*",
+    "dist/" 
+  ],
   "dependencies": {
     "mime-types": "^2.1.35",
-    "multer": "^1.4.5-lts.1",
+    "multer": "1.4.5-lts.1",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -21,5 +24,20 @@
     "@types/multer": "^1.4.11",
     "@types/node": "^22.5.0",
     "typescript": "^5.5.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dom58/classic-url-uploader.git"
+  },
+  "keywords": [
+    "react",
+    "file-upload",
+    "npm",
+    "pnpm",
+    "CSV",
+    "Excel",
+    "Backend"
+  ],
+  "author": "Dominique Ndahimana (Dom58)",
+  "license": "MIT"
 }

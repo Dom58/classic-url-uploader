@@ -1,9 +1,5 @@
-// src/utils/fileHandler.ts
-
 import fs from 'fs';
-import { lookup } from 'mime-types';
 
-// Define Payload interface
 export interface Payload {
   url: string;
 }
@@ -32,12 +28,10 @@ export const uniqueUrlsPayload = (payload: Payload[]): Payload[] => {
 export const findDuplicatesWebsites = (payload: Payload[]): Payload[] => {
   const urlCount = new Map<string, number>();
   payload.forEach(item => {
-    // Ensure item.url is defined and has a value
     const currentCount = urlCount.get(item.url) || 0;
     urlCount.set(item.url, currentCount + 1);
   });
 
-  // Filter payload for duplicates
   return payload.filter(item => {
     const count = urlCount.get(item.url);
     return count !== undefined && count > 1;
