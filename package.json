@@ -40,7 +40,8 @@
     "pnpm",
     "CSV",
     "Excel",
-    "Backend"
+    "Backend",
+    "Frontend"
   ],
   "author": "Dominique Ndahimana (Dom58)",
   "license": "MIT"
