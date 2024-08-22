@@ -23,8 +23,8 @@ export class UrlUploadProcessor {
             const mimeType = lookup(req.file.originalname);
 
             if (!mimeType || typeof mimeType !== 'string' || !isSupportedFileType(mimeType)) {
+                res.status(400).json({ error: 'Unsupported file type, file should be CSV/Excel' });
                 deleteFile(req.file.path);
-                res.status(400).json({ error: 'Unsupported file type' });
                 return;
             }
 

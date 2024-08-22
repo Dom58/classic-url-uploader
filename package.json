@@ -1,6 +1,6 @@
 {
   "name": "classic-url-uploader",
-  "version": "1.0.7",
+  "version": "1.0.16",
   "description": "",
   "main": "dist/index.js",
   "types": "src/index.d.ts",
@@ -10,8 +10,12 @@
     "prepublishOnly": "npm run build"
   },
   "files": [
-    "dist/*",
-    "dist/" 
+    "src/*.ts",
+    "dist/*.js",
+    "dist/*.d.ts",
+    "dist/utils/*.ts",
+    "dist/utils/*.js",
+    "dist/utils/*.d.ts"
   ],
   "dependencies": {
     "mime-types": "^2.1.35",
