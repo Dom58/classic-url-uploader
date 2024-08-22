@@ -1,0 +1,25 @@
+{
+  "name": "classic-url-uploader",
+  "version": "1.0.4",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mime-types": "^2.1.35",
+    "multer": "^1.4.5-lts.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/mime-types": "^2.1.4",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^22.5.0",
+    "typescript": "^5.5.4"
+  }
+}
