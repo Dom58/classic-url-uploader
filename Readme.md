@@ -12,6 +12,7 @@ npm install classic-url-uploader
 import { UrlUploadProcessor } from "classic-url-uploader";
 ```
 
+## Use uploadMultipleUrls in endpoints
 ```bash
 router.post('/upload',
   upload.single('file'),

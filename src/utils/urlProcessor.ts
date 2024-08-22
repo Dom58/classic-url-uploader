@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request } from 'express';
 import * as XLSX from 'xlsx';
 import { lookup } from 'mime-types';
 import {
@@ -8,24 +8,21 @@ import {
     findDuplicatesWebsites
 } from './fileHandler';
 import { Payload } from './fileHandler';
-interface MulterRequest extends Request {
-    file: Express.Multer.File;
-}
 
 export class UrlUploadProcessor {
-    public static async uploadMultipleUrls(req: MulterRequest, res: Response): Promise<void> {
+    public static async uploadMultipleUrls(req: Request): Promise<any> {
         try {
             if (!req.file) {
-                res.status(400).json({ error: 'No file to be uploaded' });
-                return;
+                return { status: 400, error: 'No file to be uploaded' };
             }
 
             const mimeType = lookup(req.file.originalname);
 
             if (!mimeType || typeof mimeType !== 'string' || !isSupportedFileType(mimeType)) {
-                res.status(400).json({ error: 'Unsupported file type, file should be CSV/Excel' });
-                deleteFile(req.file.path);
-                return;
+                // if (req.file.path) {
+                //     deleteFile(req.file.path);
+                // }
+                return { status: 400, error: 'Unsupported file type, file should be CSV/Excel' };
             }
 
             const filePath = req.file.path;
@@ -38,14 +35,15 @@ export class UrlUploadProcessor {
             const uniquePayload = uniqueUrlsPayload(payload);
             const duplicatedWebsites = findDuplicatesWebsites(payload);
 
-            res.status(200).json({
+            return {
+                status: 200,
                 message: 'File processed successfully',
                 data: uniquePayload,
                 duplicatedWebsites
-            });
+            };
         } catch (error) {
             console.error('====Internal server error====', error);
-            res.status(500).json({ error: 'Internal server error' });
+            return { status: 500, error: 'Internal server error' };
         } finally {
             if (req.file) {
                 deleteFile(req.file.path);

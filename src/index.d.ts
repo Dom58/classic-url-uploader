@@ -8,7 +8,7 @@ export interface Payload {
      * @param req - The Express request object.
      * @param res - The Express response object.
      */
-    public static uploadMultipleUrls(req: Request, res: Response): Promise<void>;
+    public static uploadMultipleUrls(req: Request): Promise<void>;
   }
   
   import { Request, Response } from 'express';
